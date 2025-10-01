@@ -1,20 +1,20 @@
 digraph MemoryGame {
     node [shape=box, style=filled, fillcolor=lightyellow]
-    "Initialise Game" -> "Create Gameboard" -> "Render cards" -> "Card Clicked";
-    "Card Clicked" [shape=diamond, fillcolor=lightblue];
-    "Card Clicked" -> "Check Card State" [label="Yes"];
-    "Check Card State" -> "Card Already Flipped?";
-    "Card Already Flipped?" [shape=diamond, fillcolor=lightblue];
-    "Card Already Flipped?" -> "Ignore card" [label="Yes"];
-    "Card Already Flipped?" -> "Flip Card" [label="No"];
-    "Flip Card" -> "Update State" -> "Successful Pair?";
-    "Successful Pair?" [shape=diamond, fillcolor=lightblue];
-    "Successful Pair?" -> "Lock Paired Cards" [label="Yes"];
-    "Lock Paired Cards" -> "Check Win Condition" -> "All Pairs Found?";
-    "All Pairs Found?" [shape=diamond, fillcolor=lightblue];
-    "All Pairs Found?" -> "End Game" [label="Yes"];
-    "All Pairs Found?" -> "Wait for User Action" [label="No"];
-    "Successful Pair?" -> "Flip Cards Back" [label="No"];
+    "Initialise Game" -> "Create Gameboard" -> "Render cards" -> "Card\n Clicked";
+    "Card\n Clicked" [shape=diamond, fillcolor=lightblue];
+    "Card\n Clicked" -> "Check Card State" [label="Yes"];
+    "Check Card State" -> "Card Already\n Flipped?";
+    "Card Already\n Flipped?" [shape=diamond, fillcolor=lightblue];
+    "Card Already\n Flipped?" -> "Ignore card" [label="Yes"];
+    "Card Already\n Flipped?" -> "Flip Card" [label="No"];
+    "Flip Card" -> "Update State" -> "Successful\n Pair?";
+    "Successful\n Pair?" [shape=diamond, fillcolor=lightblue];
+    "Successful\n Pair?" -> "Lock Paired Cards" [label="Yes"];
+    "Lock Paired Cards" -> "Check Win Condition" -> "All Pairs\n Found?";
+    "All Pairs\n Found?" [shape=diamond, fillcolor=lightblue];
+    "All Pairs\n Found?" -> "End Game" [label="Yes"];
+    "All Pairs\n Found?" -> "Wait for User Action" [label="No"];
+    "Successful\n Pair?" -> "Flip Cards Back" [label="No"];
     "Flip Cards Back" -> "Wait for User Action";
-    "Card Clicked" -> "Wait for User Action" [label="No"];
+    "Card\n Clicked" -> "Wait for User Action" [label="No"];
 }
