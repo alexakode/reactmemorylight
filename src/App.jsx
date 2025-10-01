@@ -41,6 +41,7 @@ export default function App() {
             ? { ...card, matched: true }
             : card
         );
+        checkWin(updatedDeck);
         setDeck(updatedDeck);
         // } else {}
         //   // match
