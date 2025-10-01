@@ -34,7 +34,8 @@
 }
 
 .card {
-  padding: 2em;
+  /* aspect-ratio: 1/1;
+  padding: 2em; */
 }
 
 .read-the-docs {
@@ -44,7 +45,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
-  padding: 20rem;
-  max-width: 400px;
+  padding: 2rem;
+  max-width: 300px;
   margin: 0 auto;
 }
