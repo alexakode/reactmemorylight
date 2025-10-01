@@ -23,20 +23,34 @@ export default function App() {
     setDeck(updatedDeck);
     setFlippedCards([...flippedCards, id]);
   };
+  const [gameWon, setGameWon] = useState(false);
+  function checkWin(deck) {
+    const allMatched = deck.every((card) => card.matched);
+    if (allMatched) {
+      setGameWon(true);
+    }
+  }
   useEffect(() => {
     if (flippedCards.length === 2) {
       const [firstId, secondId] = flippedCards;
       const firstCard = deck.find((card) => card.id === firstId);
       const secondCard = deck.find((card) => card.id === secondId);
       if (firstCard.value === secondCard.value) {
-        // match
-        setDeck((prev) =>
-          prev.map((card) =>
-            card.id === firstId || card.id === secondId
-              ? { ...card, matched: true }
-              : card
-          )
+        const updatedDeck = deck.map((card) =>
+          card.id === firstId || card.id === secondId
+            ? { ...card, matched: true }
+            : card
         );
+        setDeck(updatedDeck);
+        // } else {}
+        //   // match
+        //   setDeck((prev) =>
+        //     prev.map((card) =>
+        //       card.id === firstId || card.id === secondId
+        //         ? { ...card, matched: true }
+        //         : card
+        //     )
+        //   );
         setFlippedCards([]);
       } else {
         // Ikke match, snu tilbake etter delay
@@ -54,16 +68,24 @@ export default function App() {
     }
   }, [flippedCards, deck]);
   return (
-    <div className="game-board">
-      {deck.map((card) => (
-        <Card
-          key={card.id}
-          value={card.value}
-          flipped={card.flipped}
-          matched={card.matched}
-          onClick={() => handleCardClick(card.id)}
-        />
-      ))}
+    <div className="app-container">
+      <h1>Memory game</h1>
+      {gameWon && (
+        <div className="win-message">
+          Du vant!<button onClick={restartGame}>Start på nytt</button>
+        </div>
+      )}
+      <div className="game-board">
+        {deck.map((card) => (
+          <Card
+            key={card.id}
+            value={card.value}
+            flipped={card.flipped}
+            matched={card.matched}
+            onClick={() => handleCardClick(card.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 }

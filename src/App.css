@@ -49,3 +49,8 @@
   max-width: 300px;
   margin: 0 auto;
 }
+.win-message {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
