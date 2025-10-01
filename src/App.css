@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  padding: 20rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
