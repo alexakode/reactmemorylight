@@ -17,4 +17,6 @@ digraph MemoryGame {
     "Successful\n Pair?" -> "Flip Cards Back" [label="No"];
     "Flip Cards Back" -> "Wait for User Action";
     "Card\n Clicked" -> "Wait for User Action" [label="No"];
+    "End Game" -> "Restart Game";
+    "Restart Game" -> "Create Gameboard" [label="Yes"];
 }

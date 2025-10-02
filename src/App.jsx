@@ -25,11 +25,23 @@ export default function App() {
   };
   const [gameWon, setGameWon] = useState(false);
   function checkWin(deck) {
+    if (deck.length === 0) return; // pass på at kortstokken ikke er tom
     const allMatched = deck.every((card) => card.matched);
     if (allMatched) {
       setGameWon(true);
     }
   }
+  const restartGame = () => {
+    const newDeck = shuffleDeck(initialValues).map((value, index) => ({
+      id: index,
+      value,
+      flipped: false,
+      matched: false,
+    }));
+    setDeck(newDeck);
+    setGameWon(false);
+    setFlippedCards([]);
+  };
   useEffect(() => {
     if (flippedCards.length === 2) {
       const [firstId, secondId] = flippedCards;
@@ -72,7 +84,7 @@ export default function App() {
     <div className="app-container">
       <h1>Memory game</h1>
       {gameWon && (
-        <div className="win-message">
+        <div className={`win-message ${gameWon ? "visible" : ""}`}>
           Du vant!<button onClick={restartGame}>Start på nytt</button>
         </div>
       )}
