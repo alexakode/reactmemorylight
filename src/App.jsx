@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import { getInitialValues } from "./utils/getInitialValues";
 import shuffleDeck from "./utils/shuffleDeck";
 import Card from "./components/Card";
 import "./App.css";
 
 export default function App() {
-  const initialValues = ["🍎", "🍌"]; //unike kort, begynner med hardkode for å teste
+  const rows = 4;
+  const columns = 4;
+  if ((rows * columns)%2 !== 0) {
+    throw new Error("Rows/columns må være partall")
+  }
+  const pairCount = (rows * columns) / 2;
+  const initialValues = getInitialValues(pairCount);//["🍎", "🍌"]; unike kort, begynner med hardkode for å teste
   const [deck, setDeck] = useState(() =>
     shuffleDeck(initialValues).map((value, index) => ({
       id: index,
