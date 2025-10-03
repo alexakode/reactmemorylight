@@ -85,7 +85,7 @@ export default function App() {
       <h1>Memory game</h1>
       {gameWon && (
         <div className={`win-message ${gameWon ? "visible" : ""}`}>
-          Du vant!<button onClick={restartGame}>Start på nytt</button>
+          Gratulerer!<button onClick={restartGame}>Start på nytt</button>
         </div>
       )}
       <div className="game-board">
