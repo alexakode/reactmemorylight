@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import "./App.css";
 
 export default function App() {
+  
   const rows = 4;
   const columns = 4;
   if ((rows * columns)%2 !== 0) {
